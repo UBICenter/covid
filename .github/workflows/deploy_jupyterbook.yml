@@ -29,7 +29,7 @@ jobs:
           pip install jupyter-book
           cd jb
           jb build .
-	  touch _build/html/.nojekyll
+          touch _build/html/.nojekyll
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
