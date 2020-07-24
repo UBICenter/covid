@@ -1,0 +1,6 @@
+name: covid
+channels:
+- pslmodels
+dependencies:
+- python
+- taxcalc
