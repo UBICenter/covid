@@ -4,3 +4,6 @@ channels:
 dependencies:
 - python
 - taxcalc
+- pip
+- pip:
+  - jupyter-book
