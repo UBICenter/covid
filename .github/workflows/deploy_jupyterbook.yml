@@ -29,7 +29,6 @@ jobs:
           pip install jupyter-book
           cd jb
           jb build .
-	  cp ../CNAME _build/html
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
