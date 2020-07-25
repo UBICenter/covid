@@ -6,7 +6,7 @@ dependencies:
 - taxcalc
 - plotly
 - pandas
-- pandas_datareader
+- pandas-datareader
 - numpy
 - pip
 - pip:
