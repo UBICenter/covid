@@ -412,7 +412,8 @@ for i in [pov_rates, pov_gap_ineq]:
 ### Calculate % changes from relevant baselines
 """
 
-POV_RATES_KEYS = ['year', 'age_group', 'race', 'disability_filter']  # Plus reform/baseline
+# Another key is reform/baseline.
+POV_RATES_KEYS = ['year', 'age_group', 'race', 'disability_filter']
 POV_GAP_INEQ_KEYS = ['year']
 BASELINES = ['baseline', 'fpuc_net']
 
