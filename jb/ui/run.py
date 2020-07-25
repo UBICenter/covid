@@ -315,7 +315,8 @@ def pov_row(row):
     Returns:
         2018 SPM poverty rate.
     """
-    return pov(row.reform, row.year, row.age_group, row.race)
+    return pov(row.reform, row.year, row.age_group, row.race,
+               row.disability_filter)
 
 
 pov_rates = mdf.cartesian_product({'reform': ['baseline'] + CHG_COLS,
@@ -411,7 +412,7 @@ for i in [pov_rates, pov_gap_ineq]:
 ### Calculate % changes from relevant baselines
 """
 
-POV_RATES_KEYS = ['year', 'age_group', 'race']  # Plus reform/baseline
+POV_RATES_KEYS = ['year', 'age_group', 'race', 'disability_filter']  # Plus reform/baseline
 POV_GAP_INEQ_KEYS = ['year']
 BASELINES = ['baseline', 'fpuc_net']
 
