@@ -4,6 +4,9 @@ channels:
 dependencies:
 - python
 - taxcalc
+- plotly
+- pandas
+- numpy
 - pip
 - pip:
   - jupyter-book
