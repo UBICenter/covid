@@ -29,7 +29,7 @@ person = person.merge(cpiu[['inflate2020']], left_on='FLPDYR',
                       right_index=True)
 DOLLAR_VALS = ['spmtotres', 'spmthresh',
                'e02400', 'e01700', 'e00300', 'e02300', 'e00650', 'incrent',
-               'p23250', 'fica', '_e00200', 'e00600', 'e01500', 
+               'p23250', 'fica', '_e00200', 'e00600', 'e01500',
                'e00200p', 'e00200s', 'e00200']
 for i in DOLLAR_VALS:
     person[i] = person[i] * person.inflate2020
@@ -70,18 +70,20 @@ person['e02300_orig'] = person.e02300
 """
 person['RECID'] = person.FLPDYR * 1e9 + person.taxid
 
+
 def get_taxes(tu):
     """ Calculates taxes by running taxcalc on a tax unit DataFrame.
-    
+
     Args:
         tu: Tax unit DataFrame.
-    
+
     Returns:
         Series with tax liability for each tax unit.
     """
     return mdf.calc_df(records=tc.Records(tu, weights=None, gfactors=None),
                        # year doesn't matter without weights or gfactors.
                        year=2020).tax.values
+
 
 # Create tax unit dataframe.
 tu = create_tax_unit(person)
@@ -125,10 +127,11 @@ person = person.merge(tu[['RECID', 'fpuc_total', 'fpuc2_total',
                       on='RECID')
 
 for i in ['fpuc', 'fpuc2']:
-    person[i + '_tax'] = np.where(person[i + '_total'] == 0, 0,
+    person[i + '_tax'] = np.where(
+        person[i + '_total'] == 0, 0,
         person[i + '_tax_total'] * person[i] / person[i + '_total'])
     person[i + '_net'] = person[i] - person[i + '_tax']
-    
+
 # Checks that the totals match by person and tax unit, then garbage-collect.
 assert np.allclose(tu.fpuc_total.sum(), person.fpuc.sum())
 assert np.allclose(tu.fpuc2_total.sum(), person.fpuc2.sum())
@@ -139,6 +142,7 @@ del tu
 """
 ## Calculate budget-neutral UBIs and payroll taxes
 """
+
 
 def single_year_summary(year):
     fpuc_budget = mdf.weighted_sum(person[person.FLPDYR == year],
@@ -161,6 +165,7 @@ def single_year_summary(year):
     return pd.Series([fpuc_budget, fpuc2_budget, pop, adult_pop, total_fica,
                       fpuc_ubi, fpuc_adult_ubi, fpuc_fica_pct_cut,
                       fpuc2_ubi, fpuc2_adult_ubi, fpuc2_fica_pct_cut])
+
 
 OVERALL_YEARLY_METRICS = ['fpuc_budget', 'fpuc2_budget', 'pop', 'adult_pop',
                           'total_fica']
@@ -201,11 +206,11 @@ person['fpuc_fica_cut'] = person.fica * person.fpuc_fica_pct_cut / 100
 # Similar process for FPUC2, but also adding fpuc_net since this is on top
 # of the existing FPUC.
 person['fpuc2_ubi'] = person.fpuc_net + person.fpuc2_ubi
-person['fpuc2_adult_ubi'] = (person.fpuc_net + 
+person['fpuc2_adult_ubi'] = (person.fpuc_net +
                              np.where(person.age > 17,
                                       person.fpuc2_adult_ubi, 0))
 person['fpuc2_fica_cut'] = (person.fpuc_net +
-                             person.fica * person.fpuc2_fica_pct_cut / 100)
+                            person.fica * person.fpuc2_fica_pct_cut / 100)
 
 """
 Verify the `fpuc` and `fpuc2` have equal costs, respectively, in each year.
@@ -214,12 +219,12 @@ for year in person.FLPDYR.unique():
     tmp = person[person.FLPDYR == year]
     fpuc = mdf.weighted_sum(tmp, 'fpuc_net', 'asecwt')
     assert np.allclose(fpuc, mdf.weighted_sum(tmp, 'fpuc_ubi', 'asecwt'))
-    assert np.allclose(fpuc, 
+    assert np.allclose(fpuc,
                        mdf.weighted_sum(tmp, 'fpuc_adult_ubi', 'asecwt'))
     assert np.allclose(fpuc, mdf.weighted_sum(tmp, 'fpuc_fica_cut', 'asecwt'))
     fpuc2 = mdf.weighted_sum(tmp, 'fpuc2_net', 'asecwt')
     assert np.allclose(fpuc2, mdf.weighted_sum(tmp, 'fpuc2_ubi', 'asecwt'))
-    assert np.allclose(fpuc2, 
+    assert np.allclose(fpuc2,
                        mdf.weighted_sum(tmp, 'fpuc2_adult_ubi', 'asecwt'))
     assert np.allclose(fpuc2, mdf.weighted_sum(tmp,
                                                'fpuc2_fica_cut', 'asecwt'))
@@ -235,7 +240,7 @@ CHG_COLS = ['fpuc_net', 'fpuc_ubi', 'fpuc_adult_ubi', 'fpuc_fica_cut',
 spmu = person.groupby(SPM_COLS)[CHG_COLS].sum().reset_index()
 for i in CHG_COLS:
     spmu['spmtotres_' + i] = spmu.spmtotres + spmu[i]
-    
+
 """
 ## Map back to persons
 """
@@ -245,14 +250,14 @@ person = person.merge(spmu[SPMU_MERGE_COLS + spm_resource_cols],
                       on=SPMU_MERGE_COLS)
 # Poverty flags.
 for i in CHG_COLS:
-    person['spmpoor_' + i ] = person['spmtotres_' + i] < person.spmthresh
+    person['spmpoor_' + i] = person['spmtotres_' + i] < person.spmthresh
 # Also calculate baseline.
 person['spmpoor'] = person.spmtotres < person.spmthresh
 
 SPM_OUTCOLS = SPM_COLS + spm_resource_cols
 spmu = spmu[SPM_OUTCOLS]
 
-PERSON_OUTCOLS = (['asecwt', 'age', 'race', 'sex', 'diffany', 'spmpoor'] + 
+PERSON_OUTCOLS = (['asecwt', 'age', 'race', 'sex', 'diffany', 'spmpoor'] +
                   CHG_COLS + spm_resource_cols + SPM_COLS +
                   ['spmpoor_' + i for i in CHG_COLS])
 person = person[PERSON_OUTCOLS]
@@ -262,7 +267,7 @@ def pov(reform, year, age_group='All', race='All', disability_filter=False):
     """ Calculate the poverty rate under the specified reform for the
         specified population.
         Note: All arguments refer to the poverty population, not the reform.
-    
+
     Args:
         reform: One of CHG_COLS. If None, provides the baseline rate.
         year: Year of the data (year before CPS survey year).
@@ -276,7 +281,7 @@ def pov(reform, year, age_group='All', race='All', disability_filter=False):
             is available for civilians aged 15+, and is 0 for NIU, 1 for
             no difficulty reported, 2 for some difficulty reported.
             Defaults to False.
-        
+
     Returns:
         2018 SPM poverty rate.
     """
@@ -303,21 +308,22 @@ def pov(reform, year, age_group='All', race='All', disability_filter=False):
 
 def pov_row(row):
     """ Calculate poverty based on parameters specified in the row.
-    
+
     Args:
         row: pandas Series.
-        
+
     Returns:
         2018 SPM poverty rate.
     """
     return pov(row.reform, row.year, row.age_group, row.race)
+
 
 pov_rates = mdf.cartesian_product({'reform': ['baseline'] + CHG_COLS,
                                    'year': person.FLPDYR.unique(),
                                    'age_group': ['All', 'Children', 'Adults'],
                                    'race': ['All', 200],  # 200 means Black.
                                    'disability_filter': [True, False]
-                                  })  
+                                   })
 pov_rates['pov'] = 100 * pov_rates.apply(pov_row, axis=1)
 
 """
@@ -325,6 +331,7 @@ pov_rates['pov'] = 100 * pov_rates.apply(pov_row, axis=1)
 Calculate these for all people and SPM units, without breaking out by age or
 race.
 """
+
 
 def pov_gap_b(reform, year):
     if reform == 'baseline':
@@ -335,8 +342,10 @@ def pov_gap_b(reform, year):
     pov_gap = np.maximum(tmp.spmthresh - tmp[resource_col], 0)
     return (pov_gap * tmp.spmwt).sum() / 1e9
 
+
 def pov_gap_row(row):
     return pov_gap_b(row.reform, row.year)
+
 
 pov_gap_ineq = pov_rates[['reform', 'year']].drop_duplicates()
 pov_gap_ineq['pov_gap_b'] = pov_gap_ineq.apply(pov_gap_row, axis=1)
@@ -347,6 +356,7 @@ pov_gap_ineq['pov_gap_b'] = pov_gap_ineq.apply(pov_gap_row, axis=1)
 By individual based on their percentage of SPM resources.
 """
 
+
 def gini(reform, year):
     if reform == 'baseline':
         resource_col = 'spmtotres'
@@ -355,8 +365,10 @@ def gini(reform, year):
     tmp = person[person.FLPDYR == year]
     return mdf.gini(tmp[resource_col], tmp.asecwt)
 
+
 def gini_row(row):
     return gini(row.reform, row.year)
+
 
 pov_gap_ineq['gini'] = pov_gap_ineq.apply(gini_row, axis=1)
 
@@ -394,7 +406,7 @@ for i in [pov_rates, pov_gap_ineq]:
     i['reform_display'] = i.reform.map(REFORM_DISPLAY)
     i['reform_group'] = i.reform.map(REFORM_GROUP)
     i['baseline'] = np.where(i.reform_group == 'fpuc', 'baseline', 'fpuc_net')
-    
+
 """
 ### Calculate % changes from relevant baselines
 """
@@ -424,7 +436,7 @@ pov_gap_ineq2['pov_gap_pc'] = 100 * (pov_gap_ineq2.pov_gap_b /
 pov_gap_ineq2['gini_pc'] = 100 * (pov_gap_ineq2.gini /
                                   pov_gap_ineq2.baseline_gini - 1)
 
-## Charts
+# Charts
 
 # Colors from https://material.io/design/color/the-color-system.html
 BLUE = '#1976D2'
@@ -440,10 +452,11 @@ COLOR_MAP = {
     'Payment to adults': LIGHT_BLUE
 }
 
+
 def line_graph(df, group, y, yaxis_title, title,
                x='year', color='reform_display', xaxis_title=''):
     """Style for line graphs.
-    
+
     Arguments
         df: DataFrame with data to be plotted.
         group: Reform group, either 'fpuc' (against baseline), or
@@ -455,7 +468,7 @@ def line_graph(df, group, y, yaxis_title, title,
         color: The string representing the column to show different colors of.
             Defaults to 'reform_display'.
         xaxis_title: x axis title. Defaults to '' (since the year is obvious).
-    
+
     Returns
         Nothing. Shows the plot.
     """
@@ -477,7 +490,7 @@ def line_graph(df, group, y, yaxis_title, title,
         font=dict(family='Roboto'),
         hovermode='x',
         plot_bgcolor='white',
-        legend_title_text='' 
+        legend_title_text=''
     )
     if y == 'pov_gap_b':
         fig.update_layout(yaxis_tickprefix='$', yaxis_ticksuffix='B')
@@ -492,7 +505,7 @@ def line_graph(df, group, y, yaxis_title, title,
         yrange = ymax - ymin
         ymin_vis = ymin - 0.1 * yrange
         ymax_vis = ymax + 0.1 * yrange
-        fig.update_yaxes(zeroline=True, zerolinewidth=0.5, 
+        fig.update_yaxes(zeroline=True, zerolinewidth=0.5,
                          zerolinecolor='lightgray',
                          range=[ymin_vis, ymax_vis])
 
