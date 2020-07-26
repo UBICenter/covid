@@ -36,49 +36,15 @@ for i in DOLLAR_VALS:
 
 """
 ## Add UI to person records
-
-Assume that unemployment blocks are contiguous and randomly distributed.
 """
-person['ui_start'] = np.random.randint(1, 53 - person.wksunem1,
-                                       person.shape[0])
-person['ui_end'] = person.ui_start + person.wksunem1
-
-FPUC_START = 13  # April was the 13th week.
-FPUC_MAX_WEEKS = 17  # April to July.
-FPUC2_START = FPUC_START + FPUC_MAX_WEEKS
-FPUC2_MAX_WEEKS = 22  # August to December.
+FPUC_WEEKS = 17  # April to July.
+FPUC2_WEEKS = 22  # August to December.
 FPUC_WEEKLY_BEN = 600
 
-
-def overlap(a0, a1, b0, b1):
-    """ Calculates the overlap between two intervals.
-
-    Args:
-        a0: Left endpoint of first interval.
-        a1: Right endpoint of first interval.
-        b0: Left endpoint of first interval.
-        b1: Right endpoint of first interval.
-
-    Returns:
-        Length of overlap between intervals a and b.
-    """
-    start = np.fmax(a0, b0)
-    end = np.fmin(a1, b1)
-    return np.fmax(end - start, 0)
-
-
-person['fpuc_weeks'] = overlap(person.ui_start, person.ui_end,
-                               FPUC_START, FPUC_START + FPUC_MAX_WEEKS)
-person['fpuc2_weeks'] = overlap(person.ui_start, person.ui_end,
-                                FPUC2_START, FPUC2_START + FPUC2_MAX_WEEKS)
-person['fpuc'] = FPUC_WEEKLY_BEN * person.fpuc_weeks
+person['fpuc'] = FPUC_WEEKLY_BEN * person.wksunem1 * FPUC_WEEKS / 52
 # FPUC2 is conditional on FPUC1, so add the amount here.
-person['fpuc2'] = person.fpuc + FPUC_WEEKLY_BEN * person.fpuc2_weeks
-
-# Checks
-assert person.fpuc_weeks.max() == FPUC_MAX_WEEKS
-assert person.fpuc2_weeks.max() == FPUC2_MAX_WEEKS
-assert person.fpuc_weeks.min() == person.fpuc2_weeks.min() == 0
+person['fpuc2'] = (
+    person.fpuc + FPUC_WEEKLY_BEN * person.wksunem1 * FPUC2_WEEKS / 52)
 
 # Store original unemployment benefits.
 person['e02300_orig'] = person.e02300
