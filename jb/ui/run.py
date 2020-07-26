@@ -48,13 +48,31 @@ FPUC_MAX_WEEKS = 17  # April to July.
 FPUC2_START = FPUC_START + FPUC_MAX_WEEKS
 FPUC2_MAX_WEEKS = 22  # August to December.
 FPUC_WEEKLY_BEN = 600
-person['fpuc_weeks'] = np.fmax(
-    0, np.fmin(person.ui_end - FPUC_START,
-               np.fmin(person.wksunem1, FPUC_MAX_WEEKS)))
-person['fpuc2_weeks'] = np.fmax(
-    0, np.fmin(person.ui_end - FPUC2_START,
-               np.fmin(person.wksunem1, FPUC2_MAX_WEEKS)))
+
+
+def overlap(a0, a1, b0, b1):
+    """ Calculates the overlap between two intervals.
+
+    Args:
+        a0: Left endpoint of first interval.
+        a1: Right endpoint of first interval.
+        b0: Left endpoint of first interval.
+        b1: Right endpoint of first interval.
+
+    Returns:
+        Length of overlap between intervals a and b.
+    """
+    start = np.fmax(a0, b0)
+    end = np.fmin(a1, b1)
+    return np.fmax(end - start, 0)
+
+
+person['fpuc_weeks'] = overlap(person.ui_start, person.ui_end,
+                               FPUC_START, FPUC_START + FPUC_MAX_WEEKS)
+person['fpuc2_weeks'] = overlap(person.ui_start, person.ui_end,
+                                FPUC2_START, FPUC2_START + FPUC2_MAX_WEEKS)
 person['fpuc'] = FPUC_WEEKLY_BEN * person.fpuc_weeks
+# FPUC2 is conditional on FPUC1, so add the amount here.
 person['fpuc2'] = person.fpuc + FPUC_WEEKLY_BEN * person.fpuc2_weeks
 
 # Checks
