@@ -201,8 +201,8 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#calculating-budget-neutral-alternatives-todo">
-     Calculating budget-neutral alternatives [todo]
+    <a class="reference internal nav-link" href="#calculating-budget-neutral-alternatives">
+     Calculating budget-neutral alternatives
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -294,8 +294,8 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#poverty-among-people-with-disabilities-todo">
-       Poverty among people with disabilities [todo]
+      <a class="reference internal nav-link" href="#poverty-among-adults-with-disabilities">
+       Poverty among adults with disabilities
       </a>
      </li>
     </ul>
@@ -410,9 +410,15 @@ applying 2020 tax law for all years–and store the difference as the FPUC tax.<
 we allocate  the tax unit’s FPUC tax across individuals in proportion to their FPUC benefits.
 This leaves us with the net-of-tax FPUC benefits for each person in the sample.</p>
 </div>
-<div class="section" id="calculating-budget-neutral-alternatives-todo">
-<h3>Calculating budget-neutral alternatives [todo]<a class="headerlink" href="#calculating-budget-neutral-alternatives-todo" title="Permalink to this headline">¶</a></h3>
-<p>For each year, we</p>
+<div class="section" id="calculating-budget-neutral-alternatives">
+<h3>Calculating budget-neutral alternatives<a class="headerlink" href="#calculating-budget-neutral-alternatives" title="Permalink to this headline">¶</a></h3>
+<p>For each year, we calculated the total cost of FPUC and expanding FPUC by adding up the
+costs for each person. This table shows these costs, along with other quantities from the CPS that
+factor into the budget-neutral parameters, for each year.
+As the economy improved from 2009 to 2018, and specifically as the unemployment rate fell,
+the cost of FPUC and expanding FPUC fell by roughly half.
+For example, enacting FPUC from April to July of 2009 would have cost an
+estimated \$118 billion, while it would have cost \$59 billion in 2018.</p>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
@@ -448,7 +454,7 @@ This leaves us with the net-of-tax FPUC benefits for each person in the sample.<
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All figures in millions.&quot;</span><span class="p">)</span>
 <span class="p">(</span><span class="n">year_summary</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;FLPDYR&#39;</span><span class="p">:</span> <span class="s1">&#39;Year&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span>
     <span class="s1">&#39;Year&#39;</span><span class="p">)[</span><span class="n">OVERALL_YEARLY_METRICS</span><span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
-    <span class="n">columns</span><span class="o">=</span><span class="n">DISPLAY_METRICS</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1e6</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">columns</span><span class="o">=</span><span class="n">DISPLAY_METRICS</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1e6</span><span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:,.0f}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -456,264 +462,201 @@ This leaves us with the net-of-tax FPUC benefits for each person in the sample.<
 <div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>All figures in millions.
 </pre></div>
 </div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Cost of FPUC</th>
-      <th>Cost of expanding FPUC</th>
-      <th>Population</th>
-      <th>Adult population</th>
-      <th>Total FICA</th>
-    </tr>
-    <tr>
-      <th>Year</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2009</th>
-      <td>118262.5</td>
-      <td>79337.8</td>
-      <td>304.3</td>
-      <td>229.7</td>
-      <td>565285.1</td>
-    </tr>
-    <tr>
-      <th>2010</th>
-      <td>110654.2</td>
-      <td>76160.0</td>
-      <td>306.6</td>
-      <td>232.3</td>
-      <td>554978.2</td>
-    </tr>
-    <tr>
-      <th>2011</th>
-      <td>105495.7</td>
-      <td>71654.8</td>
-      <td>308.8</td>
-      <td>234.7</td>
-      <td>430923.1</td>
-    </tr>
-    <tr>
-      <th>2012</th>
-      <td>98613.8</td>
-      <td>66345.0</td>
-      <td>311.1</td>
-      <td>236.9</td>
-      <td>429107.7</td>
-    </tr>
-    <tr>
-      <th>2013</th>
-      <td>91301.8</td>
-      <td>61000.9</td>
-      <td>313.4</td>
-      <td>239.5</td>
-      <td>580207.0</td>
-    </tr>
-    <tr>
-      <th>2014</th>
-      <td>77848.7</td>
-      <td>50085.1</td>
-      <td>316.2</td>
-      <td>242.2</td>
-      <td>590994.8</td>
-    </tr>
-    <tr>
-      <th>2015</th>
-      <td>73601.3</td>
-      <td>47825.3</td>
-      <td>318.9</td>
-      <td>244.8</td>
-      <td>643589.7</td>
-    </tr>
-    <tr>
-      <th>2016</th>
-      <td>67946.0</td>
-      <td>44569.5</td>
-      <td>320.4</td>
-      <td>246.3</td>
-      <td>654401.9</td>
-    </tr>
-    <tr>
-      <th>2017</th>
-      <td>60698.6</td>
-      <td>38531.4</td>
-      <td>323.2</td>
-      <td>249.2</td>
-      <td>672941.3</td>
-    </tr>
-    <tr>
-      <th>2018</th>
-      <td>59623.4</td>
-      <td>37897.7</td>
-      <td>324.4</td>
-      <td>250.6</td>
-      <td>687863.7</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_8de66282_cf0e_11ea_9500_000d3aa53f6e" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >Cost of FPUC</th>        <th class="col_heading level0 col1" >Cost of expanding FPUC</th>        <th class="col_heading level0 col2" >Population</th>        <th class="col_heading level0 col3" >Adult population</th>        <th class="col_heading level0 col4" >Total FICA</th>    </tr>    <tr>        <th class="index_name level0" >Year</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_8de66282_cf0e_11ea_9500_000d3aa53f6elevel0_row0" class="row_heading level0 row0" >2009</th>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow0_col0" class="data row0 col0" >118,262</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow0_col1" class="data row0 col1" >79,338</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow0_col2" class="data row0 col2" >304</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow0_col3" class="data row0 col3" >230</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow0_col4" class="data row0 col4" >565,285</td>
+            </tr>
+            <tr>
+                        <th id="T_8de66282_cf0e_11ea_9500_000d3aa53f6elevel0_row1" class="row_heading level0 row1" >2010</th>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow1_col0" class="data row1 col0" >110,654</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow1_col1" class="data row1 col1" >76,160</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow1_col2" class="data row1 col2" >307</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow1_col3" class="data row1 col3" >232</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow1_col4" class="data row1 col4" >554,978</td>
+            </tr>
+            <tr>
+                        <th id="T_8de66282_cf0e_11ea_9500_000d3aa53f6elevel0_row2" class="row_heading level0 row2" >2011</th>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow2_col0" class="data row2 col0" >105,496</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow2_col1" class="data row2 col1" >71,655</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow2_col2" class="data row2 col2" >309</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow2_col3" class="data row2 col3" >235</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow2_col4" class="data row2 col4" >430,923</td>
+            </tr>
+            <tr>
+                        <th id="T_8de66282_cf0e_11ea_9500_000d3aa53f6elevel0_row3" class="row_heading level0 row3" >2012</th>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow3_col0" class="data row3 col0" >98,614</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow3_col1" class="data row3 col1" >66,345</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow3_col2" class="data row3 col2" >311</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow3_col3" class="data row3 col3" >237</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow3_col4" class="data row3 col4" >429,108</td>
+            </tr>
+            <tr>
+                        <th id="T_8de66282_cf0e_11ea_9500_000d3aa53f6elevel0_row4" class="row_heading level0 row4" >2013</th>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow4_col0" class="data row4 col0" >91,302</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow4_col1" class="data row4 col1" >61,001</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow4_col2" class="data row4 col2" >313</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow4_col3" class="data row4 col3" >239</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow4_col4" class="data row4 col4" >580,207</td>
+            </tr>
+            <tr>
+                        <th id="T_8de66282_cf0e_11ea_9500_000d3aa53f6elevel0_row5" class="row_heading level0 row5" >2014</th>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow5_col0" class="data row5 col0" >77,849</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow5_col1" class="data row5 col1" >50,085</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow5_col2" class="data row5 col2" >316</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow5_col3" class="data row5 col3" >242</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow5_col4" class="data row5 col4" >590,995</td>
+            </tr>
+            <tr>
+                        <th id="T_8de66282_cf0e_11ea_9500_000d3aa53f6elevel0_row6" class="row_heading level0 row6" >2015</th>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow6_col0" class="data row6 col0" >73,601</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow6_col1" class="data row6 col1" >47,825</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow6_col2" class="data row6 col2" >319</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow6_col3" class="data row6 col3" >245</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow6_col4" class="data row6 col4" >643,590</td>
+            </tr>
+            <tr>
+                        <th id="T_8de66282_cf0e_11ea_9500_000d3aa53f6elevel0_row7" class="row_heading level0 row7" >2016</th>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow7_col0" class="data row7 col0" >67,946</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow7_col1" class="data row7 col1" >44,569</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow7_col2" class="data row7 col2" >320</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow7_col3" class="data row7 col3" >246</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow7_col4" class="data row7 col4" >654,402</td>
+            </tr>
+            <tr>
+                        <th id="T_8de66282_cf0e_11ea_9500_000d3aa53f6elevel0_row8" class="row_heading level0 row8" >2017</th>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow8_col0" class="data row8 col0" >60,699</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow8_col1" class="data row8 col1" >38,531</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow8_col2" class="data row8 col2" >323</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow8_col3" class="data row8 col3" >249</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow8_col4" class="data row8 col4" >672,941</td>
+            </tr>
+            <tr>
+                        <th id="T_8de66282_cf0e_11ea_9500_000d3aa53f6elevel0_row9" class="row_heading level0 row9" >2018</th>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow9_col0" class="data row9 col0" >59,623</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow9_col1" class="data row9 col1" >37,898</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow9_col2" class="data row9 col2" >324</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow9_col3" class="data row9 col3" >251</td>
+                        <td id="T_8de66282_cf0e_11ea_9500_000d3aa53f6erow9_col4" class="data row9 col4" >687,864</td>
+            </tr>
+    </tbody></table></div></div>
 </div>
-<p>[todo]</p>
+<p>These figures produce the budget-neutral policy parameters for each year by division.
+For example, to calculate the universal payment associated with FPUC in 2009,
+we can divide the cost of FPUC in that year (\$118 billion) by the population in that year
+(304 million), and arrive at \$389 per person.
+Similarly, the associated FICA cut would be the total FICA collections (\$565 billion)
+divided by \$118 billion, or 21 percent (note this is the cut for FICA through the full year).</p>
+<p>This table shows the full set of parameters that match the total cost of both the original FPUC
+and its expansion (“FPUC2”).</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print reform parameter summary.</span>
 <span class="p">(</span><span class="n">year_summary</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;FLPDYR&#39;</span><span class="p">:</span> <span class="s1">&#39;Year&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)[</span>
     <span class="n">FPUC_YEARLY_METRICS</span> <span class="o">+</span> <span class="n">FPUC2_YEARLY_METRICS</span><span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
-    <span class="n">columns</span><span class="o">=</span><span class="n">DISPLAY_METRICS</span><span class="p">))</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">columns</span><span class="o">=</span><span class="n">DISPLAY_METRICS</span><span class="p">))</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:,.0f}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Universal one-time payment (FPUC)</th>
-      <th>Adult one-time payment (FPUC)</th>
-      <th>FICA % cut (FPUC)</th>
-      <th>Universal one-time payment (FPUC2)</th>
-      <th>Adult one-time payment (FPUC2)</th>
-      <th>FICA % cut (FPUC2)</th>
-    </tr>
-    <tr>
-      <th>Year</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2009</th>
-      <td>388.66</td>
-      <td>514.79</td>
-      <td>20.92</td>
-      <td>260.74</td>
-      <td>345.36</td>
-      <td>14.03</td>
-    </tr>
-    <tr>
-      <th>2010</th>
-      <td>360.96</td>
-      <td>476.43</td>
-      <td>19.94</td>
-      <td>248.44</td>
-      <td>327.91</td>
-      <td>13.72</td>
-    </tr>
-    <tr>
-      <th>2011</th>
-      <td>341.60</td>
-      <td>449.45</td>
-      <td>24.48</td>
-      <td>232.02</td>
-      <td>305.28</td>
-      <td>16.63</td>
-    </tr>
-    <tr>
-      <th>2012</th>
-      <td>316.97</td>
-      <td>416.22</td>
-      <td>22.98</td>
-      <td>213.25</td>
-      <td>280.02</td>
-      <td>15.46</td>
-    </tr>
-    <tr>
-      <th>2013</th>
-      <td>291.31</td>
-      <td>381.22</td>
-      <td>15.74</td>
-      <td>194.63</td>
-      <td>254.70</td>
-      <td>10.51</td>
-    </tr>
-    <tr>
-      <th>2014</th>
-      <td>246.23</td>
-      <td>321.36</td>
-      <td>13.17</td>
-      <td>158.41</td>
-      <td>206.75</td>
-      <td>8.47</td>
-    </tr>
-    <tr>
-      <th>2015</th>
-      <td>230.82</td>
-      <td>300.65</td>
-      <td>11.44</td>
-      <td>149.98</td>
-      <td>195.36</td>
-      <td>7.43</td>
-    </tr>
-    <tr>
-      <th>2016</th>
-      <td>212.08</td>
-      <td>275.84</td>
-      <td>10.38</td>
-      <td>139.12</td>
-      <td>180.94</td>
-      <td>6.81</td>
-    </tr>
-    <tr>
-      <th>2017</th>
-      <td>187.83</td>
-      <td>243.58</td>
-      <td>9.02</td>
-      <td>119.23</td>
-      <td>154.62</td>
-      <td>5.73</td>
-    </tr>
-    <tr>
-      <th>2018</th>
-      <td>183.82</td>
-      <td>237.96</td>
-      <td>8.67</td>
-      <td>116.84</td>
-      <td>151.25</td>
-      <td>5.51</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_8de66283_cf0e_11ea_9500_000d3aa53f6e" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >Universal one-time payment (FPUC)</th>        <th class="col_heading level0 col1" >Adult one-time payment (FPUC)</th>        <th class="col_heading level0 col2" >FICA % cut (FPUC)</th>        <th class="col_heading level0 col3" >Universal one-time payment (FPUC2)</th>        <th class="col_heading level0 col4" >Adult one-time payment (FPUC2)</th>        <th class="col_heading level0 col5" >FICA % cut (FPUC2)</th>    </tr>    <tr>        <th class="index_name level0" >Year</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_8de66283_cf0e_11ea_9500_000d3aa53f6elevel0_row0" class="row_heading level0 row0" >2009</th>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow0_col0" class="data row0 col0" >389</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow0_col1" class="data row0 col1" >515</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow0_col2" class="data row0 col2" >21</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow0_col3" class="data row0 col3" >261</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow0_col4" class="data row0 col4" >345</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow0_col5" class="data row0 col5" >14</td>
+            </tr>
+            <tr>
+                        <th id="T_8de66283_cf0e_11ea_9500_000d3aa53f6elevel0_row1" class="row_heading level0 row1" >2010</th>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow1_col0" class="data row1 col0" >361</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow1_col1" class="data row1 col1" >476</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow1_col2" class="data row1 col2" >20</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow1_col3" class="data row1 col3" >248</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow1_col4" class="data row1 col4" >328</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow1_col5" class="data row1 col5" >14</td>
+            </tr>
+            <tr>
+                        <th id="T_8de66283_cf0e_11ea_9500_000d3aa53f6elevel0_row2" class="row_heading level0 row2" >2011</th>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow2_col0" class="data row2 col0" >342</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow2_col1" class="data row2 col1" >449</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow2_col2" class="data row2 col2" >24</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow2_col3" class="data row2 col3" >232</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow2_col4" class="data row2 col4" >305</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow2_col5" class="data row2 col5" >17</td>
+            </tr>
+            <tr>
+                        <th id="T_8de66283_cf0e_11ea_9500_000d3aa53f6elevel0_row3" class="row_heading level0 row3" >2012</th>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow3_col0" class="data row3 col0" >317</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow3_col1" class="data row3 col1" >416</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow3_col2" class="data row3 col2" >23</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow3_col3" class="data row3 col3" >213</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow3_col4" class="data row3 col4" >280</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow3_col5" class="data row3 col5" >15</td>
+            </tr>
+            <tr>
+                        <th id="T_8de66283_cf0e_11ea_9500_000d3aa53f6elevel0_row4" class="row_heading level0 row4" >2013</th>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow4_col0" class="data row4 col0" >291</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow4_col1" class="data row4 col1" >381</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow4_col2" class="data row4 col2" >16</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow4_col3" class="data row4 col3" >195</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow4_col4" class="data row4 col4" >255</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow4_col5" class="data row4 col5" >11</td>
+            </tr>
+            <tr>
+                        <th id="T_8de66283_cf0e_11ea_9500_000d3aa53f6elevel0_row5" class="row_heading level0 row5" >2014</th>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow5_col0" class="data row5 col0" >246</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow5_col1" class="data row5 col1" >321</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow5_col2" class="data row5 col2" >13</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow5_col3" class="data row5 col3" >158</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow5_col4" class="data row5 col4" >207</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow5_col5" class="data row5 col5" >8</td>
+            </tr>
+            <tr>
+                        <th id="T_8de66283_cf0e_11ea_9500_000d3aa53f6elevel0_row6" class="row_heading level0 row6" >2015</th>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow6_col0" class="data row6 col0" >231</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow6_col1" class="data row6 col1" >301</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow6_col2" class="data row6 col2" >11</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow6_col3" class="data row6 col3" >150</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow6_col4" class="data row6 col4" >195</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow6_col5" class="data row6 col5" >7</td>
+            </tr>
+            <tr>
+                        <th id="T_8de66283_cf0e_11ea_9500_000d3aa53f6elevel0_row7" class="row_heading level0 row7" >2016</th>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow7_col0" class="data row7 col0" >212</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow7_col1" class="data row7 col1" >276</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow7_col2" class="data row7 col2" >10</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow7_col3" class="data row7 col3" >139</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow7_col4" class="data row7 col4" >181</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow7_col5" class="data row7 col5" >7</td>
+            </tr>
+            <tr>
+                        <th id="T_8de66283_cf0e_11ea_9500_000d3aa53f6elevel0_row8" class="row_heading level0 row8" >2017</th>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow8_col0" class="data row8 col0" >188</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow8_col1" class="data row8 col1" >244</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow8_col2" class="data row8 col2" >9</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow8_col3" class="data row8 col3" >119</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow8_col4" class="data row8 col4" >155</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow8_col5" class="data row8 col5" >6</td>
+            </tr>
+            <tr>
+                        <th id="T_8de66283_cf0e_11ea_9500_000d3aa53f6elevel0_row9" class="row_heading level0 row9" >2018</th>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow9_col0" class="data row9 col0" >184</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow9_col1" class="data row9 col1" >238</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow9_col2" class="data row9 col2" >9</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow9_col3" class="data row9 col3" >117</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow9_col4" class="data row9 col4" >151</td>
+                        <td id="T_8de66283_cf0e_11ea_9500_000d3aa53f6erow9_col5" class="data row9 col5" >6</td>
+            </tr>
+    </tbody></table></div></div>
 </div>
 </div>
 <div class="section" id="poverty-estimation">
@@ -865,20 +808,20 @@ var n,a=t("./lib/build-log"),i=t("./lib/epsilon"),o=t("./lib/intersecter"),s=t("
 </div><div class="output text_html"><div>
 
 
-            <div id="600d211a-fd72-48dc-9907-9e9d9ebaf7b6" class="plotly-graph-div" style="height:525px; width:100%;"></div>
+            <div id="de4d5c22-3ece-4fd8-adfe-995c6640ac58" class="plotly-graph-div" style="height:525px; width:100%;"></div>
             <script type="text/javascript">
                 require(["plotly"], function(Plotly) {
                     window.PLOTLYENV=window.PLOTLYENV || {};
 
-                if (document.getElementById("600d211a-fd72-48dc-9907-9e9d9ebaf7b6")) {
+                if (document.getElementById("de4d5c22-3ece-4fd8-adfe-995c6640ac58")) {
                     Plotly.newPlot(
-                        '600d211a-fd72-48dc-9907-9e9d9ebaf7b6',
+                        'de4d5c22-3ece-4fd8-adfe-995c6640ac58',
                         [{"legendgroup": "$600 per week UI", "line": {"color": "#BDBDBD", "dash": "solid"}, "mode": "markers+lines", "name": "$600 per week UI", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-9.29, -8.53, -8.62, -8.26, -8.15, -6.51, -6.25, -5.16, -4.53, -5.7], "yaxis": "y"}, {"legendgroup": "Payment to everyone", "line": {"color": "#1976D2", "dash": "solid"}, "mode": "markers+lines", "name": "Payment to everyone", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-9.34, -8.41, -8.16, -7.09, -6.54, -6.29, -5.78, -4.91, -3.98, -4.18], "yaxis": "y"}, {"legendgroup": "Payment to adults", "line": {"color": "#64B5F6", "dash": "solid"}, "mode": "markers+lines", "name": "Payment to adults", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-7.75, -6.99, -6.91, -5.89, -5.34, -5.47, -4.89, -4.33, -3.87, -3.77], "yaxis": "y"}, {"legendgroup": "Payroll tax cut", "line": {"color": "#C62828", "dash": "solid"}, "mode": "markers+lines", "name": "Payroll tax cut", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-2.41, -1.93, -2.07, -1.92, -1.59, -1.6, -1.45, -1.27, -1.02, -1.2], "yaxis": "y"}],
                         {"font": {"family": "Roboto"}, "hovermode": "x", "legend": {"title": {"text": ""}, "tracegroupgap": 0}, "margin": {"t": 60}, "plot_bgcolor": "white", "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "title": {"text": "Poverty reduction by reform from baseline"}, "xaxis": {"anchor": "y", "domain": [0.0, 1.0], "title": {"text": ""}}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0], "range": [-10.274, 0.934], "ticksuffix": "%", "title": {"text": "Change in SPM poverty rate from baseline"}, "zeroline": true, "zerolinecolor": "lightgray", "zerolinewidth": 0.5}},
                         {"responsive": true}
                     ).then(function(){
 
-var gd = document.getElementById('600d211a-fd72-48dc-9907-9e9d9ebaf7b6');
+var gd = document.getElementById('de4d5c22-3ece-4fd8-adfe-995c6640ac58');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -911,7 +854,7 @@ if (outputEl) {{
 <h4>Poverty gap<a class="headerlink" href="#poverty-gap" title="Permalink to this headline">¶</a></h4>
 <p>The poverty gap is an alternative poverty measure which quantifies the total
 amount we’d have to distribute to end poverty.
-Since we would have to give more to people who are farther below the poverty line,
+Since filling the poverty gap requires giving more to people who are farther below the poverty line,
 this measure goes beyond the poverty rate in also measuring the severity of poverty.</p>
 <p>The poverty gap trend resembles the poverty rate trend.</p>
 <div class="cell tag_hide-input docutils container">
@@ -927,20 +870,20 @@ this measure goes beyond the poverty rate in also measuring the severity of pove
 <div class="output text_html"><div>
 
 
-            <div id="5859b7ae-0783-4528-8b11-2615c0742630" class="plotly-graph-div" style="height:525px; width:100%;"></div>
+            <div id="501e42a6-0f31-4412-b666-2cbf5a626261" class="plotly-graph-div" style="height:525px; width:100%;"></div>
             <script type="text/javascript">
                 require(["plotly"], function(Plotly) {
                     window.PLOTLYENV=window.PLOTLYENV || {};
 
-                if (document.getElementById("5859b7ae-0783-4528-8b11-2615c0742630")) {
+                if (document.getElementById("501e42a6-0f31-4412-b666-2cbf5a626261")) {
                     Plotly.newPlot(
-                        '5859b7ae-0783-4528-8b11-2615c0742630',
+                        '501e42a6-0f31-4412-b666-2cbf5a626261',
                         [{"legendgroup": "$600 per week UI", "line": {"color": "#BDBDBD", "dash": "solid"}, "mode": "markers+lines", "name": "$600 per week UI", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-9.06, -8.32, -8.43, -8.25, -7.9, -6.37, -5.97, -5.49, -4.24, -4.55], "yaxis": "y"}, {"legendgroup": "Payment to everyone", "line": {"color": "#1976D2", "dash": "solid"}, "mode": "markers+lines", "name": "Payment to everyone", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-8.57, -8.0, -7.54, -7.35, -6.81, -5.78, -5.14, -4.65, -3.97, -4.08], "yaxis": "y"}, {"legendgroup": "Payment to adults", "line": {"color": "#64B5F6", "dash": "solid"}, "mode": "markers+lines", "name": "Payment to adults", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-8.23, -7.7, -7.25, -7.06, -6.59, -5.62, -4.96, -4.53, -3.84, -4.02], "yaxis": "y"}, {"legendgroup": "Payroll tax cut", "line": {"color": "#C62828", "dash": "solid"}, "mode": "markers+lines", "name": "Payroll tax cut", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-1.57, -1.34, -1.33, -1.31, -1.25, -1.04, -0.89, -0.8, -0.68, -0.67], "yaxis": "y"}],
                         {"font": {"family": "Roboto"}, "hovermode": "x", "legend": {"title": {"text": ""}, "tracegroupgap": 0}, "margin": {"t": 60}, "plot_bgcolor": "white", "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "title": {"text": "Poverty gap by reform from baseline"}, "xaxis": {"anchor": "y", "domain": [0.0, 1.0], "title": {"text": ""}}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0], "range": [-9.966000000000001, 0.9060000000000001], "ticksuffix": "%", "title": {"text": "Change in poverty gap from baseline"}, "zeroline": true, "zerolinecolor": "lightgray", "zerolinewidth": 0.5}},
                         {"responsive": true}
                     ).then(function(){
 
-var gd = document.getElementById('5859b7ae-0783-4528-8b11-2615c0742630');
+var gd = document.getElementById('501e42a6-0f31-4412-b666-2cbf5a626261');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -987,20 +930,20 @@ If anything, the payroll tax cut would slightly increase inequality.</p>
 <div class="output text_html"><div>
 
 
-            <div id="388fcf82-57b2-41d8-8a5a-a78970afb35c" class="plotly-graph-div" style="height:525px; width:100%;"></div>
+            <div id="170b3a33-5541-4db6-b791-ee4def6a7726" class="plotly-graph-div" style="height:525px; width:100%;"></div>
             <script type="text/javascript">
                 require(["plotly"], function(Plotly) {
                     window.PLOTLYENV=window.PLOTLYENV || {};
 
-                if (document.getElementById("388fcf82-57b2-41d8-8a5a-a78970afb35c")) {
+                if (document.getElementById("170b3a33-5541-4db6-b791-ee4def6a7726")) {
                     Plotly.newPlot(
-                        '388fcf82-57b2-41d8-8a5a-a78970afb35c',
+                        '170b3a33-5541-4db6-b791-ee4def6a7726',
                         [{"legendgroup": "$600 per week UI", "line": {"color": "#BDBDBD", "dash": "solid"}, "mode": "markers+lines", "name": "$600 per week UI", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-1.6, -1.51, -1.46, -1.37, -1.29, -1.04, -0.95, -0.84, -0.71, -0.69], "yaxis": "y"}, {"legendgroup": "Payment to everyone", "line": {"color": "#1976D2", "dash": "solid"}, "mode": "markers+lines", "name": "Payment to everyone", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-1.42, -1.36, -1.25, -1.18, -1.1, -0.94, -0.85, -0.74, -0.65, -0.58], "yaxis": "y"}, {"legendgroup": "Payment to adults", "line": {"color": "#64B5F6", "dash": "solid"}, "mode": "markers+lines", "name": "Payment to adults", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-1.25, -1.19, -1.1, -1.04, -0.96, -0.81, -0.73, -0.65, -0.56, -0.52], "yaxis": "y"}, {"legendgroup": "Payroll tax cut", "line": {"color": "#C62828", "dash": "solid"}, "mode": "markers+lines", "name": "Payroll tax cut", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [0.09, 0.11, 0.07, 0.07, 0.02, 0.0, 0.01, 0.0, 0.0, 0.0], "yaxis": "y"}],
                         {"font": {"family": "Roboto"}, "hovermode": "x", "legend": {"title": {"text": ""}, "tracegroupgap": 0}, "margin": {"t": 60}, "plot_bgcolor": "white", "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "title": {"text": "Inequality by reform from baseline"}, "xaxis": {"anchor": "y", "domain": [0.0, 1.0], "title": {"text": ""}}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0], "range": [-1.7710000000000001, 0.281], "ticksuffix": "%", "title": {"text": "Change in Gini index from baseline"}, "zeroline": true, "zerolinecolor": "lightgray", "zerolinewidth": 0.5}},
                         {"responsive": true}
                     ).then(function(){
 
-var gd = document.getElementById('388fcf82-57b2-41d8-8a5a-a78970afb35c');
+var gd = document.getElementById('170b3a33-5541-4db6-b791-ee4def6a7726');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -1067,20 +1010,20 @@ would reduce poverty by less than half as much as the FPUC extension.</p>
 <div class="output text_html"><div>
 
 
-            <div id="98450798-01b2-4b68-816d-f48ee4fe0a54" class="plotly-graph-div" style="height:525px; width:100%;"></div>
+            <div id="f2871663-966d-4606-93d6-83af57a8369c" class="plotly-graph-div" style="height:525px; width:100%;"></div>
             <script type="text/javascript">
                 require(["plotly"], function(Plotly) {
                     window.PLOTLYENV=window.PLOTLYENV || {};
 
-                if (document.getElementById("98450798-01b2-4b68-816d-f48ee4fe0a54")) {
+                if (document.getElementById("f2871663-966d-4606-93d6-83af57a8369c")) {
                     Plotly.newPlot(
-                        '98450798-01b2-4b68-816d-f48ee4fe0a54',
+                        'f2871663-966d-4606-93d6-83af57a8369c',
                         [{"legendgroup": "Extend $600 per week", "line": {"color": "#BDBDBD", "dash": "solid"}, "mode": "markers+lines", "name": "Extend $600 per week", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-3.75, -3.84, -3.69, -3.69, -2.87, -2.92, -2.93, -2.48, -1.67, -1.73], "yaxis": "y"}, {"legendgroup": "Payment to everyone", "line": {"color": "#1976D2", "dash": "solid"}, "mode": "markers+lines", "name": "Payment to everyone", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-6.2, -5.86, -5.81, -5.34, -4.8, -4.23, -3.93, -3.46, -2.7, -2.67], "yaxis": "y"}, {"legendgroup": "Payment to adults", "line": {"color": "#64B5F6", "dash": "solid"}, "mode": "markers+lines", "name": "Payment to adults", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-5.13, -5.03, -4.89, -4.54, -3.89, -3.48, -3.42, -2.98, -2.21, -2.51], "yaxis": "y"}, {"legendgroup": "Payroll tax cut", "line": {"color": "#C62828", "dash": "solid"}, "mode": "markers+lines", "name": "Payroll tax cut", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-1.49, -1.38, -1.41, -1.52, -1.24, -1.02, -1.04, -0.88, -0.62, -0.89], "yaxis": "y"}],
                         {"font": {"family": "Roboto"}, "hovermode": "x", "legend": {"title": {"text": ""}, "tracegroupgap": 0}, "margin": {"t": 60}, "plot_bgcolor": "white", "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "title": {"text": "Poverty reduction by reform moving forward"}, "xaxis": {"anchor": "y", "domain": [0.0, 1.0], "title": {"text": ""}}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0], "range": [-6.82, 0.6200000000000001], "ticksuffix": "%", "title": {"text": "Change in SPM poverty rate from Apr-Jul FPUC baseline"}, "zeroline": true, "zerolinecolor": "lightgray", "zerolinewidth": 0.5}},
                         {"responsive": true}
                     ).then(function(){
 
-var gd = document.getElementById('98450798-01b2-4b68-816d-f48ee4fe0a54');
+var gd = document.getElementById('f2871663-966d-4606-93d6-83af57a8369c');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -1129,20 +1072,20 @@ conditional on additional unemployment benefits.</p>
 <div class="output text_html"><div>
 
 
-            <div id="bd49c7b7-c733-40d2-9adb-b56dd3b59524" class="plotly-graph-div" style="height:525px; width:100%;"></div>
+            <div id="3b2fd609-c767-4c39-a649-7a182e1d00b2" class="plotly-graph-div" style="height:525px; width:100%;"></div>
             <script type="text/javascript">
                 require(["plotly"], function(Plotly) {
                     window.PLOTLYENV=window.PLOTLYENV || {};
 
-                if (document.getElementById("bd49c7b7-c733-40d2-9adb-b56dd3b59524")) {
+                if (document.getElementById("3b2fd609-c767-4c39-a649-7a182e1d00b2")) {
                     Plotly.newPlot(
-                        'bd49c7b7-c733-40d2-9adb-b56dd3b59524',
+                        '3b2fd609-c767-4c39-a649-7a182e1d00b2',
                         [{"legendgroup": "Extend $600 per week", "line": {"color": "#BDBDBD", "dash": "solid"}, "mode": "markers+lines", "name": "Extend $600 per week", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-2.66, -2.42, -2.54, -2.23, -2.0, -1.7, -1.6, -1.41, -1.1, -0.89], "yaxis": "y"}, {"legendgroup": "Payment to everyone", "line": {"color": "#1976D2", "dash": "solid"}, "mode": "markers+lines", "name": "Payment to everyone", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-5.84, -5.57, -5.18, -5.0, -4.58, -3.76, -3.37, -3.08, -2.53, -2.58], "yaxis": "y"}, {"legendgroup": "Payment to adults", "line": {"color": "#64B5F6", "dash": "solid"}, "mode": "markers+lines", "name": "Payment to adults", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-5.58, -5.35, -4.98, -4.79, -4.42, -3.65, -3.24, -3.0, -2.45, -2.56], "yaxis": "y"}, {"legendgroup": "Payroll tax cut", "line": {"color": "#C62828", "dash": "solid"}, "mode": "markers+lines", "name": "Payroll tax cut", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-1.01, -0.88, -0.87, -0.85, -0.81, -0.65, -0.57, -0.51, -0.42, -0.41], "yaxis": "y"}],
                         {"font": {"family": "Roboto"}, "hovermode": "x", "legend": {"title": {"text": ""}, "tracegroupgap": 0}, "margin": {"t": 60}, "plot_bgcolor": "white", "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "title": {"text": "Poverty gap by reform moving forward"}, "xaxis": {"anchor": "y", "domain": [0.0, 1.0], "title": {"text": ""}}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0], "range": [-6.4239999999999995, 0.584], "ticksuffix": "%", "title": {"text": "Change in poverty gap from Apr-Jul FPUC baseline"}, "zeroline": true, "zerolinecolor": "lightgray", "zerolinewidth": 0.5}},
                         {"responsive": true}
                     ).then(function(){
 
-var gd = document.getElementById('bd49c7b7-c733-40d2-9adb-b56dd3b59524');
+var gd = document.getElementById('3b2fd609-c767-4c39-a649-7a182e1d00b2');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -1188,20 +1131,20 @@ Payroll tax cuts continue to slightly increase inequality in most years.</p>
 <div class="output text_html"><div>
 
 
-            <div id="67f9ef87-feee-4c92-b150-1b06a89272bd" class="plotly-graph-div" style="height:525px; width:100%;"></div>
+            <div id="6b3f4640-07ad-4943-be30-f9b76c7ddbcb" class="plotly-graph-div" style="height:525px; width:100%;"></div>
             <script type="text/javascript">
                 require(["plotly"], function(Plotly) {
                     window.PLOTLYENV=window.PLOTLYENV || {};
 
-                if (document.getElementById("67f9ef87-feee-4c92-b150-1b06a89272bd")) {
+                if (document.getElementById("6b3f4640-07ad-4943-be30-f9b76c7ddbcb")) {
                     Plotly.newPlot(
-                        '67f9ef87-feee-4c92-b150-1b06a89272bd',
+                        '6b3f4640-07ad-4943-be30-f9b76c7ddbcb',
                         [{"legendgroup": "Extend $600 per week", "line": {"color": "#BDBDBD", "dash": "solid"}, "mode": "markers+lines", "name": "Extend $600 per week", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-0.77, -0.76, -0.72, -0.68, -0.63, -0.49, -0.47, -0.42, -0.34, -0.33], "yaxis": "y"}, {"legendgroup": "Payment to everyone", "line": {"color": "#1976D2", "dash": "solid"}, "mode": "markers+lines", "name": "Payment to everyone", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-0.93, -0.91, -0.83, -0.78, -0.73, -0.59, -0.55, -0.48, -0.41, -0.37], "yaxis": "y"}, {"legendgroup": "Payment to adults", "line": {"color": "#64B5F6", "dash": "solid"}, "mode": "markers+lines", "name": "Payment to adults", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-0.82, -0.8, -0.73, -0.68, -0.63, -0.51, -0.47, -0.42, -0.35, -0.33], "yaxis": "y"}, {"legendgroup": "Payroll tax cut", "line": {"color": "#C62828", "dash": "solid"}, "mode": "markers+lines", "name": "Payroll tax cut", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [0.07, 0.09, 0.06, 0.05, 0.02, 0.01, 0.01, 0.0, 0.01, 0.01], "yaxis": "y"}],
                         {"font": {"family": "Roboto"}, "hovermode": "x", "legend": {"title": {"text": ""}, "tracegroupgap": 0}, "margin": {"t": 60}, "plot_bgcolor": "white", "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "title": {"text": "Inequality by reform moving forward"}, "xaxis": {"anchor": "y", "domain": [0.0, 1.0], "title": {"text": ""}}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0], "range": [-1.032, 0.192], "ticksuffix": "%", "title": {"text": "Change in Gini index from Apr-Jul FPUC baseline"}, "zeroline": true, "zerolinecolor": "lightgray", "zerolinewidth": 0.5}},
                         {"responsive": true}
                     ).then(function(){
 
-var gd = document.getElementById('67f9ef87-feee-4c92-b150-1b06a89272bd');
+var gd = document.getElementById('6b3f4640-07ad-4943-be30-f9b76c7ddbcb');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -1233,11 +1176,46 @@ if (outputEl) {{
 <div class="section" id="poverty-among-children-black-people-and-people-with-disabilities-todo">
 <h4>Poverty among children, Black people, and people with disabilities [TODO]<a class="headerlink" href="#poverty-among-children-black-people-and-people-with-disabilities-todo" title="Permalink to this headline">¶</a></h4>
 <p>Full poverty graphs for each group are shown in Appendix A.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Code</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="section" id="conclusion">
 <h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>US lawmakers will consider a range of factors in drafting the next relief bill,
+from infection containment to work incentives to economic growth to income stability.</p>
+<p>To the extent that distributional issues are included in this list—and we believe that they should be—our research shows that the bill should include direct payments.
+Unlike most OECD countries, unemployment benefits in the US
+<a class="reference external" href="https://read.oecd-ilibrary.org/social-issues-migration-health/growing-unequal_9789264044197-en#page108">are regressive</a>,
+and while FPUC’s flat structure is more progressive than relative reforms like
+increasing the wage replacement rate, it remains less progressive than universal payments. Payroll tax cuts barely reduce poverty, and may even exacerbate inequality.</p>
+<p>Means-tested payments would be even more progressive than universal ones,
+but targeting in emergency situations introduces its own challenges.
+The IRS issued Recovery Rebates largely based on 2018 tax returns,
+which in some cases reflected income over 2 years prior to the pandemic.
+Not only may those tax returns fail to represent families’ current financial situation,
+they may fail to represent the families themselves, if people have since
+married, divorced, or had children.
+Depending on one’s income in the past two years, the timing of 2019 tax filing
+<a class="reference external" href="https://medium.com/&#64;MaxGhenis/if-you-earned-more-in-2019-than-2018-dont-file-your-2019-taxes-yet-otherwise-file-asap-e564a9c3d7b7">could determine</a> whether one received
+or didn’t receive a Recovery Rebate.
+Addressing some of these issues may require designing payment systems outside the IRS,
+but concerns about providing payments to high-income people
+are easily addressed by <a class="reference external" href="https://www.forbes.com/sites/benritz/2020/03/17/how-to-maximize-the-benefit-of-universal-stimulus-checks/#2bdfd7536fc2">recouping universal payments</a>
+in the tax code, where systems for complicated household and financial situations
+already exist.</p>
+<p>FPUC’s first round significantly reduced poverty and inequality,
+but continuing that momentum will require diversifying the set of recipients.
+By including low-income workers and people outside the labor force, universal payments
+provide that diversification.
+Our research shows that a consequence of this broadening is substantially greater poverty and inequality
+reduction compared to FPUC.</p>
 </div>
 <div class="section" id="appendix">
 <h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">¶</a></h2>
@@ -1247,8 +1225,8 @@ if (outputEl) {{
 alternatives for children, Black people, and people with disabilities.</p>
 <div class="section" id="poverty-among-children">
 <h4>Poverty among children<a class="headerlink" href="#poverty-among-children" title="Permalink to this headline">¶</a></h4>
-<p>Unsurprisingly, the adult-only restriction dramatically reduces the effectiveness of
-the payments for reducing child poverty.</p>
+<p>In 2009, FPUC extension would have been half as effective at reducing child poverty as universal payments.
+Unsurprisingly, the adult-only restriction dramatically reduces the effectiveness.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">line_graph</span><span class="p">(</span><span class="n">pov_rates2</span><span class="p">[(</span><span class="n">pov_rates2</span><span class="o">.</span><span class="n">age_group</span> <span class="o">==</span> <span class="s1">&#39;Children&#39;</span><span class="p">)</span> <span class="o">&amp;</span>
@@ -1264,20 +1242,20 @@ the payments for reducing child poverty.</p>
 <div class="output text_html"><div>
 
 
-            <div id="5f13c15c-0c04-4b97-9b59-5f7ef924a5ae" class="plotly-graph-div" style="height:525px; width:100%;"></div>
+            <div id="b5fd4d8b-b2d1-44ba-be88-3aaafb693749" class="plotly-graph-div" style="height:525px; width:100%;"></div>
             <script type="text/javascript">
                 require(["plotly"], function(Plotly) {
                     window.PLOTLYENV=window.PLOTLYENV || {};
 
-                if (document.getElementById("5f13c15c-0c04-4b97-9b59-5f7ef924a5ae")) {
+                if (document.getElementById("b5fd4d8b-b2d1-44ba-be88-3aaafb693749")) {
                     Plotly.newPlot(
-                        '5f13c15c-0c04-4b97-9b59-5f7ef924a5ae',
+                        'b5fd4d8b-b2d1-44ba-be88-3aaafb693749',
                         [{"legendgroup": "Extend $600 per week", "line": {"color": "#BDBDBD", "dash": "solid"}, "mode": "markers+lines", "name": "Extend $600 per week", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-3.93, -4.32, -4.36, -4.29, -3.06, -3.6, -3.56, -2.92, -1.9, -2.35], "yaxis": "y"}, {"legendgroup": "Payment to everyone", "line": {"color": "#1976D2", "dash": "solid"}, "mode": "markers+lines", "name": "Payment to everyone", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-7.97, -7.31, -7.56, -7.0, -6.3, -5.89, -5.13, -4.42, -3.34, -3.52], "yaxis": "y"}, {"legendgroup": "Payment to adults", "line": {"color": "#64B5F6", "dash": "solid"}, "mode": "markers+lines", "name": "Payment to adults", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-4.28, -3.87, -4.11, -3.77, -3.19, -3.15, -3.07, -2.37, -1.5, -2.29], "yaxis": "y"}, {"legendgroup": "Payroll tax cut", "line": {"color": "#C62828", "dash": "solid"}, "mode": "markers+lines", "name": "Payroll tax cut", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-1.5, -1.66, -1.84, -1.72, -1.51, -1.25, -1.37, -0.92, -0.59, -1.36], "yaxis": "y"}],
                         {"font": {"family": "Roboto"}, "hovermode": "x", "legend": {"title": {"text": ""}, "tracegroupgap": 0}, "margin": {"t": 60}, "plot_bgcolor": "white", "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "title": {"text": "Child poverty reduction by reform moving forward"}, "xaxis": {"anchor": "y", "domain": [0.0, 1.0], "title": {"text": ""}}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0], "range": [-8.767, 0.797], "ticksuffix": "%", "title": {"text": "Change in child SPM poverty rate from Apr-Jul FPUC baseline"}, "zeroline": true, "zerolinecolor": "lightgray", "zerolinewidth": 0.5}},
                         {"responsive": true}
                     ).then(function(){
 
-var gd = document.getElementById('5f13c15c-0c04-4b97-9b59-5f7ef924a5ae');
+var gd = document.getElementById('b5fd4d8b-b2d1-44ba-be88-3aaafb693749');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -1308,6 +1286,11 @@ if (outputEl) {{
 </div>
 <div class="section" id="poverty-among-black-people">
 <h4>Poverty among Black people<a class="headerlink" href="#poverty-among-black-people" title="Permalink to this headline">¶</a></h4>
+<p>The poverty reduction series for Black people are more volatile
+than for other demographics.
+FPUC extension have roughly half the antipoverty effect as universal payments
+in 2009, but in 2015 the two policies would have a nearly equal effect,
+and by 2018, FPUC extension goes back to about half the impact.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">line_graph</span><span class="p">(</span><span class="n">pov_rates2</span><span class="p">[(</span><span class="n">pov_rates2</span><span class="o">.</span><span class="n">age_group</span> <span class="o">==</span> <span class="s1">&#39;All&#39;</span><span class="p">)</span> <span class="o">&amp;</span>
@@ -1323,20 +1306,20 @@ if (outputEl) {{
 <div class="output text_html"><div>
 
 
-            <div id="4b63d861-8ae9-4726-81d9-e717e9fddf71" class="plotly-graph-div" style="height:525px; width:100%;"></div>
+            <div id="c0a752b3-228d-4771-870c-dccba5015cc3" class="plotly-graph-div" style="height:525px; width:100%;"></div>
             <script type="text/javascript">
                 require(["plotly"], function(Plotly) {
                     window.PLOTLYENV=window.PLOTLYENV || {};
 
-                if (document.getElementById("4b63d861-8ae9-4726-81d9-e717e9fddf71")) {
+                if (document.getElementById("c0a752b3-228d-4771-870c-dccba5015cc3")) {
                     Plotly.newPlot(
-                        '4b63d861-8ae9-4726-81d9-e717e9fddf71',
+                        'c0a752b3-228d-4771-870c-dccba5015cc3',
                         [{"legendgroup": "Extend $600 per week", "line": {"color": "#BDBDBD", "dash": "solid"}, "mode": "markers+lines", "name": "Extend $600 per week", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-4.07, -4.62, -3.88, -4.18, -2.66, -3.64, -3.91, -2.37, -1.58, -1.72], "yaxis": "y"}, {"legendgroup": "Payment to everyone", "line": {"color": "#1976D2", "dash": "solid"}, "mode": "markers+lines", "name": "Payment to everyone", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-7.55, -7.45, -6.62, -5.93, -4.7, -3.66, -3.73, -2.97, -2.31, -3.41], "yaxis": "y"}, {"legendgroup": "Payment to adults", "line": {"color": "#64B5F6", "dash": "solid"}, "mode": "markers+lines", "name": "Payment to adults", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-5.75, -5.86, -4.84, -4.82, -3.0, -3.3, -2.91, -2.65, -1.84, -3.35], "yaxis": "y"}, {"legendgroup": "Payroll tax cut", "line": {"color": "#C62828", "dash": "solid"}, "mode": "markers+lines", "name": "Payroll tax cut", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-1.38, -1.18, -1.72, -1.74, -1.18, -0.98, -1.09, -0.91, -0.75, -1.36], "yaxis": "y"}],
                         {"font": {"family": "Roboto"}, "hovermode": "x", "legend": {"title": {"text": ""}, "tracegroupgap": 0}, "margin": {"t": 60}, "plot_bgcolor": "white", "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "title": {"text": "Poverty reduction among Black people by reform moving forward"}, "xaxis": {"anchor": "y", "domain": [0.0, 1.0], "title": {"text": ""}}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0], "range": [-8.305, 0.755], "ticksuffix": "%", "title": {"text": "Change in Black SPM poverty rate from Apr-Jul FPUC baseline"}, "zeroline": true, "zerolinecolor": "lightgray", "zerolinewidth": 0.5}},
                         {"responsive": true}
                     ).then(function(){
 
-var gd = document.getElementById('4b63d861-8ae9-4726-81d9-e717e9fddf71');
+var gd = document.getElementById('c0a752b3-228d-4771-870c-dccba5015cc3');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -1365,13 +1348,17 @@ if (outputEl) {{
         </div></div></div>
 </div>
 </div>
-<div class="section" id="poverty-among-people-with-disabilities-todo">
-<h4>Poverty among people with disabilities [todo]<a class="headerlink" href="#poverty-among-people-with-disabilities-todo" title="Permalink to this headline">¶</a></h4>
-<p>In 2009,</p>
+<div class="section" id="poverty-among-adults-with-disabilities">
+<h4>Poverty among adults with disabilities<a class="headerlink" href="#poverty-among-adults-with-disabilities" title="Permalink to this headline">¶</a></h4>
+<p>Adults with disabilities benefit more than other demographics from
+replacing an FPUC extension with universal payments:
+in 2009, extending FPUC would have reduced their poverty by 2.1 percent,
+compared to 5.5 percent from universal payments and
+6.1 percent from adult-only payments—nearly triple the effect.</p>
 <p>Since the CPS only collects disability status for civilians aged 15+,
-we report poverty status for adults with disabilities.
+we report poverty status for adults (aged 18+) with disabilities.
 This explains the strong performance of adult-only payments.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">line_graph</span><span class="p">(</span><span class="n">pov_rates2</span><span class="p">[(</span><span class="n">pov_rates2</span><span class="o">.</span><span class="n">age_group</span> <span class="o">==</span> <span class="s1">&#39;Adults&#39;</span><span class="p">)</span> <span class="o">&amp;</span>
                       <span class="p">(</span><span class="n">pov_rates2</span><span class="o">.</span><span class="n">race</span> <span class="o">==</span> <span class="s1">&#39;All&#39;</span><span class="p">)</span> <span class="o">&amp;</span>
@@ -1386,20 +1373,20 @@ This explains the strong performance of adult-only payments.</p>
 <div class="output text_html"><div>
 
 
-            <div id="8b6beb8c-bb6f-40c3-86d6-65c6b928c6a4" class="plotly-graph-div" style="height:525px; width:100%;"></div>
+            <div id="e7c06a9f-093a-485a-9a79-695655a5996c" class="plotly-graph-div" style="height:525px; width:100%;"></div>
             <script type="text/javascript">
                 require(["plotly"], function(Plotly) {
                     window.PLOTLYENV=window.PLOTLYENV || {};
 
-                if (document.getElementById("8b6beb8c-bb6f-40c3-86d6-65c6b928c6a4")) {
+                if (document.getElementById("e7c06a9f-093a-485a-9a79-695655a5996c")) {
                     Plotly.newPlot(
-                        '8b6beb8c-bb6f-40c3-86d6-65c6b928c6a4',
+                        'e7c06a9f-093a-485a-9a79-695655a5996c',
                         [{"legendgroup": "Extend $600 per week", "line": {"color": "#BDBDBD", "dash": "solid"}, "mode": "markers+lines", "name": "Extend $600 per week", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-2.07, -2.18, -1.74, -1.65, -1.45, -1.24, -1.31, -1.58, -0.99, -0.97], "yaxis": "y"}, {"legendgroup": "Payment to everyone", "line": {"color": "#1976D2", "dash": "solid"}, "mode": "markers+lines", "name": "Payment to everyone", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-5.52, -4.92, -4.43, -4.37, -4.14, -3.38, -3.25, -2.35, -2.45, -2.17], "yaxis": "y"}, {"legendgroup": "Payment to adults", "line": {"color": "#64B5F6", "dash": "solid"}, "mode": "markers+lines", "name": "Payment to adults", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-6.05, -5.94, -5.33, -5.44, -4.74, -3.86, -3.54, -2.89, -2.62, -2.89], "yaxis": "y"}, {"legendgroup": "Payroll tax cut", "line": {"color": "#C62828", "dash": "solid"}, "mode": "markers+lines", "name": "Payroll tax cut", "orientation": "v", "showlegend": true, "type": "scatter", "x": [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018], "xaxis": "x", "y": [-0.74, -0.33, -0.3, -0.4, -0.35, -0.24, -0.37, -0.28, -0.23, -0.26], "yaxis": "y"}],
                         {"font": {"family": "Roboto"}, "hovermode": "x", "legend": {"title": {"text": ""}, "tracegroupgap": 0}, "margin": {"t": 60}, "plot_bgcolor": "white", "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "title": {"text": "Poverty reduction among adults with disabilities by reform moving forward"}, "xaxis": {"anchor": "y", "domain": [0.0, 1.0], "title": {"text": ""}}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0], "range": [-6.654999999999999, 0.605], "ticksuffix": "%", "title": {"text": "Change in PWD SPM poverty rate from Apr-Jul FPUC baseline"}, "zeroline": true, "zerolinecolor": "lightgray", "zerolinewidth": 0.5}},
                         {"responsive": true}
                     ).then(function(){
 
-var gd = document.getElementById('8b6beb8c-bb6f-40c3-86d6-65c6b928c6a4');
+var gd = document.getElementById('e7c06a9f-093a-485a-9a79-695655a5996c');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
