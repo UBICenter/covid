@@ -218,19 +218,23 @@ del tmp
 ## Aggregate to SPM units
 """
 
+# Add counter for number of people.
+person['dummy'] = 1
+
 SPM_COLS = ['FLPDYR', 'spmfamunit', 'spmtotres', 'spmthresh', 'spmwt']
 CHG_COLS = ['fpuc_net', 'fpuc_ubi', 'fpuc_adult_ubi', 'fpuc_fica_cut',
             'fpuc2_net', 'fpuc2_ubi', 'fpuc2_adult_ubi', 'fpuc2_fica_cut']
-spmu = person.groupby(SPM_COLS)[CHG_COLS].sum().reset_index()
+spmu = person.groupby(SPM_COLS)[CHG_COLS + ['dummy']].sum().reset_index()
 for i in CHG_COLS:
     spmu['spmtotres_' + i] = spmu.spmtotres + spmu[i]
+spmu.rename(columns={'dummy': 'spmn'}, inplace=True)
 
 """
 ## Map back to persons
 """
 spm_resource_cols = ['spmtotres_' + i for i in CHG_COLS]
 SPMU_MERGE_COLS = ['spmfamunit', 'FLPDYR']
-person = person.merge(spmu[SPMU_MERGE_COLS + spm_resource_cols],
+person = person.merge(spmu[SPMU_MERGE_COLS + spm_resource_cols + ['spmn']],
                       on=SPMU_MERGE_COLS)
 # Poverty flags.
 for i in CHG_COLS:
@@ -241,8 +245,8 @@ person['spmpoor'] = person.spmtotres < person.spmthresh
 SPM_OUTCOLS = SPM_COLS + spm_resource_cols
 spmu = spmu[SPM_OUTCOLS]
 
-PERSON_OUTCOLS = (['asecwt', 'age', 'race', 'sex', 'diffany', 'spmpoor'] +
-                  CHG_COLS + spm_resource_cols + SPM_COLS +
+PERSON_OUTCOLS = (['asecwt', 'age', 'race', 'sex', 'diffany', 'spmpoor',
+                   'spmn'] + CHG_COLS + spm_resource_cols + SPM_COLS +
                   ['spmpoor_' + i for i in CHG_COLS])
 person = person[PERSON_OUTCOLS]
 
@@ -348,7 +352,7 @@ def gini(reform, year):
     else:
         resource_col = 'spmtotres_' + reform
     tmp = person[person.FLPDYR == year]
-    return mdf.gini(tmp[resource_col], tmp.asecwt)
+    return mdf.gini(tmp[resource_col] / tmp.spmn, tmp.asecwt)
 
 
 def gini_row(row):
