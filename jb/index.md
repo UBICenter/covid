@@ -13,14 +13,14 @@ $600-per-week unemployment benefit reduces poverty and inequality more than
 a payroll tax cut of the same cost,
 but less than universal payments.
 
-Read {doc}`fpuc.md` for more.
+Read {doc}`fpuc` for more.
 
 ## Tracking emergency cash transfer proposals
 
 See the [full tracker](https://docs.google.com/spreadsheets/d/1ZuHR2uOKWoloXw5raJzMNRjOMggcWdBxYB3Jhf0B4lE/edit#gid=0) 
 or read more [on our blog](https://medium.com/ubicenter/tracking-us-emergency-cash-transfer-proposals-7c4bf90e8ac8).
 
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQQoN_MKQqvDnUQjQHdCEISGkHYGgsSZVvHOWcv6qia260XbftP3aRh8FsPTXO-mJ8NioM7iSbNouTo/pubhtml?widget=true&amp;headers=false"></iframe>
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQQoN_MKQqvDnUQjQHdCEISGkHYGgsSZVvHOWcv6qia260XbftP3aRh8FsPTXO-mJ8NioM7iSbNouTo/pubhtml?widget=true&amp;headers=false" style="border: 0; width:100%; height: 500px; overflow: auto;"></iframe>
 
 ## Research paper: Stabilizing poverty amid Covid-19 with universal basic income
 
