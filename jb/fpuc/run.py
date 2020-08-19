@@ -501,4 +501,4 @@ def line_graph(df, group, y, yaxis_title, title,
 
     fig.update_traces(mode='markers+lines', hovertemplate=None)
 
-    fig.show()
+    fig.show(config={'displayModeBar': False})
